@@ -48,3 +48,24 @@ for entity in response["entities"]:
     ]
     print(f"Entity Mention Text (using span information): {entity_mention_text}")
     print("===\n")
+
+# This code below is to show segmented sentences and tokens of the document text
+
+print("Segmented sentences:")
+
+sentences = [
+    response["text"][span["start"] : span["end"]]
+    for span in response["sentence_boundaries"]
+]
+
+for sentence in sentences:
+    print(sentence)
+
+print("\nTokens:")
+
+tokens = [
+    response["text"][span["start"] : span["end"]]
+    for span in response["token_boundaries"]
+]
+
+print(tokens)
